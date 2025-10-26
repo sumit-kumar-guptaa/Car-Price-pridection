@@ -1,6 +1,6 @@
-# 🚗 Car Price Prediction System 🇮🇳
+# 🚗 Car Price Prediction System 
 
-An intelligent AI-powered application that predicts used car prices in Indian Rupees using Machine Learning and Computer Vision.
+An intelligent AI-powered application that predicts used car prices in Indian Rupees using Machine Learning and uploading Photos.
 
 ![Python](https://img.shields.io/badge/Python-3.12-blue?style=flat-square)
 ![Flask](https://img.shields.io/badge/Flask-3.0.0-green?style=flat-square)
