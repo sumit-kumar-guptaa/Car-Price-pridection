@@ -11,13 +11,10 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import warnings
 warnings.filterwarnings('ignore')
 
-# Currency conversion rate: 1 USD = 83 INR
-USD_TO_INR = 83
-
 print("="*70)
-print("🇮🇳 CAR PRICE PREDICTION MODEL TRAINING (INR)")
+print("💵 CAR PRICE PREDICTION MODEL TRAINING (USD)")
 print("="*70)
-print(f"💱 Currency Conversion: 1 USD = ₹{USD_TO_INR}")
+print("Training model to predict prices in US Dollars")
 print("="*70)
 
 # Create models directory if not exists
@@ -33,13 +30,11 @@ print(f"✅ Loaded {len(df):,} records with {len(df.columns)} columns")
 print("\n🧹 Cleaning data...")
 df_clean = df.copy()
 
-# Convert price from USD to INR
-df_clean['price_usd'] = df_clean['price'].str.replace('$', '').str.replace(',', '').astype(float)
-df_clean['price_clean'] = df_clean['price_usd'] * USD_TO_INR  # Price in INR
+# Keep price in USD (original currency)
+df_clean['price_clean'] = df_clean['price'].str.replace('$', '').str.replace(',', '').astype(float)
 
-print(f"✅ Converted prices from USD to INR")
-print(f"   Original range: ${df_clean['price_usd'].min():,.0f} - ${df_clean['price_usd'].max():,.0f}")
-print(f"   INR range: ₹{df_clean['price_clean'].min():,.0f} - ₹{df_clean['price_clean'].max():,.0f}")
+print(f"✅ Prices in USD")
+print(f"   USD range: ${df_clean['price_clean'].min():,.0f} - ${df_clean['price_clean'].max():,.0f}")
 
 df_clean['milage_clean'] = df_clean['milage'].str.replace(' mi.', '').str.replace(',', '').astype(float)
 df_clean['horsepower'] = df_clean['engine'].str.extract('(\d+\.?\d*)HP').astype(float)
